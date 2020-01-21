@@ -1,0 +1,39 @@
+{
+  "name": "stellar-poc",
+  "version": "1.0.0",
+  "description": "Transaction using stellar tokens on Topcoder platform",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
+  },
+  "author": "Dushyant Bhalgami <dushyantbhalgami@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.1",
+    "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "async-request": "^1.2.0",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "co": "^4.6.0",
+    "common-errors": "^1.0.5",
+    "config": "^3.2.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "get-parameter-names": "^0.3.0",
+    "http-status": "^1.4.2",
+    "http-status-codes": "^1.4.0",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
+    "stellar-hd-wallet": "0.0.10",
+    "stellar-sdk": "^3.3.0",
+    "uuid": "^3.4.0",
+    "winston": "^3.2.1"
+  }
+}
