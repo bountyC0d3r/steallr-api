@@ -4,6 +4,7 @@
 
 module.exports = {
   LOG_LEVEL: process.env.LOG_LEVEL || 'debug',
+  HOST: process.env.HOST || 'localhost',
   PORT: process.env.PORT || 3000,
   API_PREFIX: process.env.API_PREFIX || '',
   ISSUER_MNEMONIC: process.env.ISSUER_MNEMONIC || 'throw borrow car involve struggle salad dawn tree assume guilt garlic filter',

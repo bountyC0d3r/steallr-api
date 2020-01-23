@@ -24,6 +24,13 @@ module.exports = {
     }
   },
 
+  '/payment': {
+    post: {
+      controller: 'CoinController',
+      method: 'payment'
+    }
+  },
+
   '/account/:publicKey': {
     get: {
       controller: 'AccountController',
@@ -34,6 +41,16 @@ module.exports = {
     post: {
       controller: 'AccountController',
       method: 'createAccount'
+    }
+  },
+  '/account/escrow': {
+    post: {
+      controller: 'AccountController',
+      method: 'createEscrowAccount'
+    },
+    put: {
+      controller: 'AccountController',
+      method: 'configEscrowAccount'
     }
   },
 

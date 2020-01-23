@@ -1,254 +1,363 @@
 {
 	"info": {
-		"_postman_id": "f12bb58d-5e52-49d5-afd0-b04097fcd813",
+		"_postman_id": "1dbc4f52-dcad-441c-aa92-0dd6f7b62da1",
 		"name": "stellar-poc",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Create Account",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{api_domain}}/account",
-					"host": [
-						"{{api_domain}}"
-					],
-					"path": [
-						"account"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Coin",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"code\": \"zcoin\",\n\t\"amount\": \"100000\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api_domain}}/account",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"account"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{api_domain}}/coins",
-					"host": [
-						"{{api_domain}}"
-					],
-					"path": [
-						"coins"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Sell Coin",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"code\": \"zcoin\",\n\t\"price\": 0.2,\n\t\"amount\": \"5000\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Get Account Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_domain}}/account/GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"account",
+								"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{api_domain}}/coins/sell",
-					"host": [
-						"{{api_domain}}"
-					],
-					"path": [
-						"coins",
-						"sell"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Buy Coin",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"code\": \"zcoin\",\n\t\"price\": 5,\n\t\"amount\": \"500\",\n\t\"investorPublicKey\": \"GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT\",\n\t\"investorSecretKey\": \"SBVEHRJSBBBHHHWVLLB6RZDHX2H67GZXMHQQKLGT2O5L34HRKDG76ICU\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Create Escrow",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"investorPublicKey\": \"GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT\",\n\t\"initialAmount\": \"3.5000000\"\n}"
+						},
+						"url": {
+							"raw": "{{api_domain}}/account/escrow",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"account",
+								"escrow"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{api_domain}}/coins/buy",
-					"host": [
-						"{{api_domain}}"
-					],
-					"path": [
-						"coins",
-						"buy"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Trust",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"code\": \"zcoin\",\n\t\"publicKey\": \"GAXE6W4GTZYJOHZHSTGJFXU2CM7T4Y7YG6ZTNSUYVXTFBIY3KNZGVX42\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Configure Escrow",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"signerCount\": 2,\n    \"signers\": [\n        \"GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT\",\n        \"GCFV7F7N4WN2ETDDER66CWEC5GD3HKNHVONIJFGYYBFXF4N2P5ADCWEA\",\n        \"GBYGDMBZGEJFMK5INBDMPMI4CDNK2QUL5LSP66JGE5DPV7SNA6I2VNXW\"\n    ],\n    \"escrowPublicKey\": \"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS\"\n}"
+						},
+						"url": {
+							"raw": "{{api_domain}}/account/escrow",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"account",
+								"escrow"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "{{api_domain}}/transaction/trust",
-					"host": [
-						"{{api_domain}}"
-					],
-					"path": [
-						"transaction",
-						"trust"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Sign Tx",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n     \"transaction\": \"AAAAAC5PW4aecJcfJ5TMkt6aEz8+Y/g3szbKmK3mUKMbU3JqAAAAZAAUH4oAAAABAAAAAAAAAAAAAAABAAAAAAAAAAYAAAACemNvaW4AAAAAAAAAAAAAAGyrwvPkrbI3mTHSbqavz6gWbukhFsKEULv6IyvlL5Q8f/////////8AAAAAAAAAAA==\",\n     \"secret\": \"SBOYRV72VCWQQPO7CL6LC5STQGLY2QYUILNLEVGXPUK4TGAVMXCIMZZJ\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Coin",
+			"item": [
+				{
+					"name": "Sell Coin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"price\": 0.2,\n\t\"amount\": \"5000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/coins/sell",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"coins",
+								"sell"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{api_domain}}/transaction/sign",
-					"host": [
-						"{{api_domain}}"
-					],
-					"path": [
-						"transaction",
-						"sign"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Submit Tx",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n       \"transaction\": \"AAAAAC5PW4aecJcfJ5TMkt6aEz8+Y/g3szbKmK3mUKMbU3JqAAAAZAAUH4oAAAABAAAAAAAAAAAAAAABAAAAAAAAAAYAAAACemNvaW4AAAAAAAAAAAAAAGyrwvPkrbI3mTHSbqavz6gWbukhFsKEULv6IyvlL5Q8f/////////8AAAAAAAAAARtTcmoAAABAdbHAKGgGeDrxMGFloITeljbeamI5ZeTiPr0RGFPjQhb4l50qlHpbekA3WJriwka0CufXRaimp/2P4RCVct3iDA==\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Buy Coin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"price\": 5,\n\t\"amount\": \"500\",\n\t\"investorPublicKey\": \"GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT\",\n\t\"investorSecretKey\": \"SBVEHRJSBBBHHHWVLLB6RZDHX2H67GZXMHQQKLGT2O5L34HRKDG76ICU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/coins/buy",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"coins",
+								"buy"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{api_domain}}/transaction/submit",
-					"host": [
-						"{{api_domain}}"
-					],
-					"path": [
-						"transaction",
-						"submit"
-					]
+				{
+					"name": "Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"sourcePublicKey\": \"GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT\",\n\t\"destinationPublicKey\": \"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS\",\n\t\"amount\": \"150\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/payment",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Coin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"amount\": \"100000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/coins",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"coins"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Get Account Details",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{api_domain}}/account/GAM2P3YNWB4U7U2B2ZAVORT3KHPMOWF2YHGDERIUXGJ4H6TLQVZPIL4R",
-					"host": [
-						"{{api_domain}}"
-					],
-					"path": [
-						"account",
-						"GAM2P3YNWB4U7U2B2ZAVORT3KHPMOWF2YHGDERIUXGJ4H6TLQVZPIL4R"
-					]
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Create Trust",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"publicKey\": \"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/transaction/trust",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"transaction",
+								"trust"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Tx",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"transaction\": \"AAAAAJlcV3TpK9gMSSbxjCew9nX+kW5rwl5jw+7TSLQqmDyFAAABkAAUi3IAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAACAAAAAQAAAAIAAAABAAAAAgAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA5SYQ9CKZQCeGeJ0Tqumupu1HNybs5nrbw8AnHMtECyQAAAABAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAi1+X7eWbokxjJH3hWILph7Opp6uahJTYwEty8bp/QDEAAAABAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAcGGwOTESViuoaEbHsRwQ2q1Ci+rk/3kmJ0b6/k0HkaoAAAABAAAAAAAAAALLRAskAAAAQKC7zjQ5bZklnIu4N0rVBCqJBC8pAFmPOU5/11yfKInQP3PoHMBQcvpTQXzDwnLMuygIYLKMYMrVej8pQGEZnAq6f0AxAAAAQJu5xag1IyvSEsO8S1j6BqvXmRn2rflEieAv6xMTaNwO7Ju5my5RF5vZAqUPnGEBP/dD9cBgcK4xwkDQQyA3QgM=\",\n     \"secret\": \"SCRMQY6UOABFBRLJUAGK6IGDYHYGQUFNDKOMR5ZRZFL2GI3PFMXWZVT3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/transaction/sign",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"transaction",
+								"sign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Tx",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transaction\": \"AAAAAJlcV3TpK9gMSSbxjCew9nX+kW5rwl5jw+7TSLQqmDyFAAABkAAUi3IAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAACAAAAAQAAAAIAAAABAAAAAgAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA5SYQ9CKZQCeGeJ0Tqumupu1HNybs5nrbw8AnHMtECyQAAAABAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAi1+X7eWbokxjJH3hWILph7Opp6uahJTYwEty8bp/QDEAAAABAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAcGGwOTESViuoaEbHsRwQ2q1Ci+rk/3kmJ0b6/k0HkaoAAAABAAAAAAAAAAPLRAskAAAAQKC7zjQ5bZklnIu4N0rVBCqJBC8pAFmPOU5/11yfKInQP3PoHMBQcvpTQXzDwnLMuygIYLKMYMrVej8pQGEZnAq6f0AxAAAAQJu5xag1IyvSEsO8S1j6BqvXmRn2rflEieAv6xMTaNwO7Ju5my5RF5vZAqUPnGEBP/dD9cBgcK4xwkDQQyA3QgNNB5GqAAAAQBlIuICd1ho8/WXpnVcyMS8gnjYE7f+lozjIMNJwQNJhl3fI8lwPvxg+chtZGTyl/Ejo2FWbR04NZ3V4tK3sMAI=\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/transaction/submit",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"transaction",
+								"submit"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}

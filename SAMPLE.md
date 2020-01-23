@@ -286,20 +286,6 @@ async function configEscrowAccount () {
     }
   }
 
-  const member1Signer = {
-    signer: {
-      ed25519PublicKey: accounts.member1.publicKey,
-      weight: 1
-    }
-  }
-
-  const member3Signer = {
-    signer: {
-      ed25519PublicKey: accounts.member3.publicKey,
-      weight: 1
-    }
-  }
-
   const txOptions = {
     fee: await server.fetchBaseFee(),
     networkPassphrase: stellarSdk.Networks.TESTNET
