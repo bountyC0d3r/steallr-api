@@ -183,39 +183,6 @@
 					"response": []
 				},
 				{
-					"name": "Payment",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"sourcePublicKey\": \"GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT\",\n\t\"destinationPublicKey\": \"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS\",\n\t\"amount\": \"150\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{api_domain}}/payment",
-							"host": [
-								"{{api_domain}}"
-							],
-							"path": [
-								"payment"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create Coin",
 					"request": {
 						"method": "POST",
@@ -289,6 +256,80 @@
 					"response": []
 				},
 				{
+					"name": "List Transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"publicKey\": \"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/transactions/GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"transactions",
+								"GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"publicKey\": \"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/transaction/1510d372119158a4d8765f658ea0bbc869460453889731ab99581d64794b3f3d",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"transaction",
+								"1510d372119158a4d8765f658ea0bbc869460453889731ab99581d64794b3f3d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Sign Tx",
 					"request": {
 						"method": "POST",
@@ -351,6 +392,82 @@
 							"path": [
 								"transaction",
 								"submit"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"sourcePublicKey\": \"GDSSMEHUEKMUAJ4GPCORHKXJV2TO2RZXE3WOM6W3YPACOHGLIQFSJNNT\",\n\t\"destinationPublicKey\": \"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS\",\n\t\"amount\": \"150\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/payment",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"zcoin\",\n\t\"publicKey\": \"GCMVYV3U5EV5QDCJE3YYYJ5Q6Z275ELONPBF4Y6D53JURNBKTA6IKSMS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_domain}}/payment/1510d372119158a4d8765f658ea0bbc869460453889731ab99581d64794b3f3d",
+							"host": [
+								"{{api_domain}}"
+							],
+							"path": [
+								"payment",
+								"1510d372119158a4d8765f658ea0bbc869460453889731ab99581d64794b3f3d"
 							]
 						}
 					},

@@ -26,8 +26,15 @@ module.exports = {
 
   '/payment': {
     post: {
-      controller: 'CoinController',
+      controller: 'PaymentController',
       method: 'payment'
+    }
+  },
+
+  '/payment/:txHash': {
+    get: {
+      controller: 'PaymentController',
+      method: 'paymentDetails'
     }
   },
 
@@ -51,6 +58,20 @@ module.exports = {
     put: {
       controller: 'AccountController',
       method: 'configEscrowAccount'
+    }
+  },
+
+  '/transactions/:publicKey': {
+    get: {
+      controller: 'TransactionController',
+      method: 'list'
+    }
+  },
+
+  '/transaction/:txHash': {
+    get: {
+      controller: 'TransactionController',
+      method: 'txDetails'
     }
   },
 

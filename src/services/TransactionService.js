@@ -56,8 +56,23 @@ async function submitTx (data) {
   }
 }
 
+async function list (account) {
+  const request = await helper.getServer().transactions().forAccount(account)
+  const transactions = await request.call()
+  return transactions
+}
+
+async function txDetails (txHash) {
+  console.log(txHash)
+  const request = await helper.getServer().transactions().transaction(txHash)
+  const transaction = await request.call()
+  return transaction
+}
+
 module.exports = {
   signTransaction,
   createTrust,
-  submitTx
+  submitTx,
+  list,
+  txDetails
 }

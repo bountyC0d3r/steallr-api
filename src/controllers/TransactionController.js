@@ -39,8 +39,36 @@ async function submitTx (req, res) {
   }
 }
 
+async function list (req, res) {
+  try {
+    const result = await service.list(req.params.publicKey)
+    res.send(result)
+  } catch (error) {
+    res.status(error.status || 400).json({
+      type: 'error',
+      message: error.message,
+      error
+    })
+  }
+}
+
+async function txDetails (req, res) {
+  try {
+    const result = await service.txDetails(req.params.txHash)
+    res.send(result)
+  } catch (error) {
+    res.status(error.status || 400).json({
+      type: 'error',
+      message: error.message,
+      error
+    })
+  }
+}
+
 module.exports = {
   signTransaction,
   createTrust,
-  submitTx
+  submitTx,
+  list,
+  txDetails
 }
