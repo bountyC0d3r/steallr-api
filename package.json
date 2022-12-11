@@ -23,7 +23,7 @@
     "common-errors": "^1.0.5",
     "config": "^3.2.5",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "get-parameter-names": "^0.3.0",
     "http-status": "^1.4.2",
     "http-status-codes": "^1.4.0",
