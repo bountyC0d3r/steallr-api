@@ -21,7 +21,7 @@
     "body-parser": "^1.19.0",
     "co": "^4.6.0",
     "common-errors": "^1.0.5",
-    "config": "^3.2.5",
+    "config": "^3.3.8",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "get-parameter-names": "^0.3.0",
